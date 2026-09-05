@@ -1,0 +1,84 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum Tier {
+  FREE
+  PLUS
+  PRO
+  ULTRA
+}
+
+enum Mode {
+  CHAT
+  RESEARCH
+  AGENT
+  CODE
+}
+
+enum PaymentStatus {
+  PENDING
+  APPROVED
+  REJECTED
+}
+
+model User {
+  id              String   @id @default(cuid())
+  username        String   @unique
+  passwordHash    String
+  tier            Tier     @default(FREE)
+  policyAcceptedAt DateTime?
+  isAdmin         Boolean  @default(false)
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+  memories        Memory[]
+  messages        Message[]
+  payments        Payment[]
+}
+
+model Memory {
+  id        String   @id @default(cuid())
+  userId    String
+  content   String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model Message {
+  id        String   @id @default(cuid())
+  userId    String
+  role      String
+  content   String
+  mode      Mode     @default(CHAT)
+  createdAt DateTime @default(now())
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model PremiumCode {
+  id        String   @id @default(cuid())
+  codeHash  String   @unique
+  tier      Tier
+  redeemed  Boolean  @default(false)
+  redeemedBy String?
+  redeemedAt DateTime?
+  createdAt DateTime @default(now())
+}
+
+model Payment {
+  id            String        @id @default(cuid())
+  userId        String
+  tier          Tier
+  amount        Int
+  reference     String?
+  proofNote     String?
+  status        PaymentStatus @default(PENDING)
+  createdAt     DateTime      @default(now())
+  updatedAt     DateTime      @updatedAt
+  user          User          @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
