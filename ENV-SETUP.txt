@@ -1,0 +1,18 @@
+ZCORP AI 👑 ZEUS — FRONTEND SETUP
+
+The frontend defaults to:
+https://zcorp-bot.onrender.com
+
+If your Render backend has a different URL, open:
+ZEUS → Settings → AI backend URL
+and save the new URL.
+
+IMPORTANT:
+Never put your real GEMINI_API_KEY in GitHub Pages frontend files.
+Keep it only in the Render Web Service environment variables.
+
+Render backend environment variables:
+GEMINI_API_KEY=YOUR_REAL_GEMINI_API_KEY
+GEMINI_MODEL=gemini-3.8-flash
+FRONTEND_URL=https://emmyjosh65.github.io/ZCORP-AI
+PORT=10000

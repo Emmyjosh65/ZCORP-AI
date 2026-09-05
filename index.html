@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#070914" />
+  <meta name="description" content="ZEUS — ZCORP AI intelligence workspace." />
+  <title>ZEUS — ZCORP AI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <section id="authScreen" class="auth-screen">
+    <div class="auth-glow glow-a"></div><div class="auth-glow glow-b"></div>
+    <div class="auth-shell">
+      <div class="auth-brand">
+        <div class="brand-mark">♛</div>
+        <div><strong>ZEUS</strong><span>ZCORP AI</span></div>
+      </div>
+      <div class="auth-card">
+        <div class="auth-copy">
+          <div class="eyebrow">ZCORP INTELLIGENCE OS</div>
+          <h1 id="authTitle">Welcome back.</h1>
+          <p id="authSubtitle">Sign in to enter your private AI workspace.</p>
+        </div>
+        <form id="authForm" autocomplete="on">
+          <div id="nameField" class="field hidden"><label>Display name</label><input id="authName" type="text" placeholder="Your name" autocomplete="name"></div>
+          <div class="field"><label>Email</label><input id="authEmail" type="email" placeholder="you@example.com" required autocomplete="email"></div>
+          <div class="field"><label>Password</label><div class="password-wrap"><input id="authPassword" type="password" placeholder="••••••••" required minlength="4" autocomplete="current-password"><button type="button" id="togglePassword" class="icon-btn">◉</button></div></div>
+          <button class="primary-btn wide" type="submit" id="authSubmit">Sign in <span>→</span></button>
+        </form>
+        <div class="auth-divider"><span>or</span></div>
+        <button id="switchAuth" class="secondary-btn wide" type="button">Create a new account</button>
+        <p class="auth-note">🔒 Your account, chats, memory and preferences are stored locally in this browser.</p>
+      </div>
+      <div class="auth-foot"><span>© ZCORP ORG</span><span>BUILD • CREATE • INNOVATE</span></div>
+    </div>
+  </section>
+
+  <section id="appScreen" class="app hidden">
+    <aside id="sidebar" class="sidebar">
+      <div class="side-brand"><div class="brand-mark small">♛</div><div><strong>ZEUS</strong><span>ZCORP AI</span></div><button id="closeSidebar" class="mobile-only icon-btn">×</button></div>
+      <button id="newChat" class="new-chat"><span>＋</span> New chat</button>
+      <nav class="nav">
+        <button class="nav-item active" data-view="home"><span>⌂</span> Home</button>
+        <button class="nav-item" data-view="chat"><span>✦</span> Chat</button>
+        <button class="nav-item" data-view="research"><span>⌕</span> Research <b>PRO</b></button>
+        <button class="nav-item" data-view="agent"><span>◈</span> Agent <b>PRO</b></button>
+        <button class="nav-item" data-view="code"><span>⌘</span> Code Studio <b>PRO</b></button>
+        <button class="nav-item" data-view="files"><span>▣</span> Files</button>
+        <button class="nav-item" data-view="memory"><span>◉</span> Memory</button>
+        <button class="nav-item" data-view="history"><span>◷</span> History</button>
+        <button class="nav-item" data-view="upgrade"><span>♛</span> Upgrade</button>
+        <button class="nav-item" data-view="settings"><span>⚙</span> Settings</button>
+        <button class="nav-item" data-view="admin"><span>◆</span> Admin</button>
+      </nav>
+      <div class="side-bottom">
+        <div class="plan-card"><span id="planPill">FREE</span><strong id="sideName">Guest</strong><small id="sideEmail">Local account</small></div>
+        <button id="logoutBtn" class="logout">↪ Log out</button>
+      </div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar"><button id="openSidebar" class="mobile-only icon-btn">☰</button><div class="crumb"><span>👑 ZEUS</span><i>/</i><strong id="crumbView">Home</strong><span class="backend-status"><b id="backendDot"></b><small id="backendStatus">Connecting…</small></span></div><div class="top-actions"><button id="themeBtn" class="icon-btn" title="Theme">◐</button><button data-view="settings" class="icon-btn nav-jump" title="Settings">⚙</button></div></header>
+
+      <div class="content">
+        <section id="view-home" class="view active-view">
+          <div class="hero-panel">
+            <div><div class="eyebrow">PRIVATE INTELLIGENCE WORKSPACE</div><h2>Build faster. Think deeper.<br><span>Let ZEUS handle the heavy work.</span></h2><p>Chat, research, code, plan and organize your ideas in one focused workspace.</p><div class="hero-actions"><button class="primary-btn" data-view="chat">Start a chat <span>→</span></button><button class="ghost-btn" data-view="upgrade">Explore premium</button></div></div>
+            <div class="hero-orb"><div class="orb-core">♛</div><div class="orb-ring r1"></div><div class="orb-ring r2"></div><div class="orb-ring r3"></div></div>
+          </div>
+          <div class="stats-grid"><div class="stat"><small>PLAN</small><strong id="homePlan">FREE</strong><span id="homePlanText">Starter access</span></div><div class="stat"><small>CHATS</small><strong id="homeChats">0</strong><span>Conversations saved</span></div><div class="stat"><small>MEMORIES</small><strong id="homeMemory">0</strong><span>Personal context</span></div><div class="stat"><small>FILES</small><strong id="homeFiles">0</strong><span>Local workspace</span></div></div>
+          <div class="section-head"><div><div class="eyebrow">WORKSPACES</div><h3>Everything in one place</h3></div></div>
+          <div class="feature-grid">
+            <button class="feature-card" data-view="chat"><span class="feature-icon">✦</span><strong>AI Chat</strong><p>Ask, write, brainstorm and solve problems.</p><em>Open workspace →</em></button>
+            <button class="feature-card" data-view="research"><span class="feature-icon">⌕</span><strong>Research</strong><p>Turn a question into a structured research brief.</p><em>PRO workspace →</em></button>
+            <button class="feature-card" data-view="agent"><span class="feature-icon">◈</span><strong>Agent</strong><p>Break a goal into steps and execute a plan.</p><em>PRO workspace →</em></button>
+            <button class="feature-card" data-view="code"><span class="feature-icon">⌘</span><strong>Code Studio</strong><p>Generate, review and explain code.</p><em>PRO workspace →</em></button>
+          </div>
+        </section>
+
+        <section id="view-chat" class="view"><div class="workspace-head"><div><div class="eyebrow">CONVERSATION ENGINE</div><h2>Chat with ZEUS</h2><p id="chatStatus">Ready when you are.</p></div><button id="clearChat" class="ghost-btn">Clear</button></div><div class="mode-row"><button class="mode active" data-mode="fast">⚡ Fast</button><button class="mode" data-mode="think">🧠 Think</button><button class="mode" data-mode="research">⌕ Research</button><button class="mode" data-mode="agent">◈ Agent</button></div><div id="chatMessages" class="chat-box"></div><form id="chatForm" class="composer"><textarea id="chatInput" rows="1" placeholder="Message ZEUS…"></textarea><div class="composer-bar"><div><label class="attach-btn">＋<input id="chatFile" type="file" hidden multiple></label><button type="button" id="voiceBtn" class="mini-btn">🎙 Voice</button></div><button class="send-btn" type="submit">Send ↑</button></div></form></section>
+
+        <section id="view-research" class="view"><div class="workspace-head"><div><div class="eyebrow">PRO WORKSPACE</div><h2>Research Lab</h2><p>Generate a structured research brief from any topic.</p></div><span class="pro-badge">PRO</span></div><div class="tool-card"><label>Research question</label><textarea id="researchInput" rows="5" placeholder="Example: Compare the best ways to launch a small AI SaaS in 2026."></textarea><div class="tool-actions"><button id="runResearch" class="primary-btn">Run research →</button><button id="saveResearch" class="ghost-btn">Save brief</button></div></div><div id="researchResult" class="result-card empty">Your research brief will appear here.</div></section>
+
+        <section id="view-agent" class="view"><div class="workspace-head"><div><div class="eyebrow">PRO WORKSPACE</div><h2>Agent Command Center</h2><p>Give ZEUS a goal and receive an actionable execution plan.</p></div><span class="pro-badge">PRO</span></div><div class="tool-card"><label>Goal</label><textarea id="agentInput" rows="5" placeholder="Example: Plan and launch a portfolio website for my company."></textarea><button id="runAgent" class="primary-btn">Create execution plan →</button></div><div id="agentResult" class="result-card empty">Your agent plan will appear here.</div></section>
+
+        <section id="view-code" class="view"><div class="workspace-head"><div><div class="eyebrow">PRO WORKSPACE</div><h2>Code Studio</h2><p>Generate useful starter code and get explanations.</p></div><span class="pro-badge">PRO</span></div><div class="tool-card"><label>What should ZEUS code?</label><textarea id="codeInput" rows="4" placeholder="Example: Create a responsive login form in HTML/CSS/JS."></textarea><div class="tool-actions"><button id="generateCode" class="primary-btn">Generate code →</button><button id="explainCode" class="ghost-btn">Explain prompt</button></div></div><pre id="codeResult" class="code-result">// Your generated code will appear here.</pre></section>
+
+        <section id="view-files" class="view"><div class="workspace-head"><div><div class="eyebrow">LOCAL WORKSPACE</div><h2>Files</h2><p>Files stay in this browser unless you choose to connect a backend.</p></div><label class="primary-btn upload-label">Upload files <input id="fileInput" type="file" hidden multiple></label></div><div id="fileList" class="list-card"></div></section>
+
+        <section id="view-memory" class="view"><div class="workspace-head"><div><div class="eyebrow">PERSONAL CONTEXT</div><h2>Memory</h2><p>Save facts or preferences you want ZEUS to remember on this device.</p></div></div><form id="memoryForm" class="inline-form"><input id="memoryInput" placeholder="Example: I prefer concise answers."><button class="primary-btn">Save memory</button></form><div id="memoryList" class="list-card"></div></section>
+
+        <section id="view-history" class="view"><div class="workspace-head"><div><div class="eyebrow">YOUR ACTIVITY</div><h2>History</h2><p>Saved conversations and workspace activity.</p></div><button id="exportData" class="ghost-btn">Export data</button></div><div id="historyList" class="list-card"></div></section>
+
+        <section id="view-upgrade" class="view"><div class="workspace-head"><div><div class="eyebrow">ZCORP PREMIUM</div><h2>Upgrade ZEUS</h2><p>Unlock deeper reasoning, research, agents and larger workspace limits.</p></div></div><div class="plans"><div class="plan"><small>STARTER</small><h3>Free</h3><strong>₦0</strong><p>Core chat and local workspace.</p><ul><li>Fast chat</li><li>Local memory</li><li>Basic files</li></ul><button class="ghost-btn plan-btn" data-plan="Free">Current / Select</button></div><div class="plan"><small>EVERYDAY</small><h3>Plus</h3><strong>₦5,000</strong><p>More room for serious work.</p><ul><li>Everything in Free</li><li>Higher limits</li><li>Priority workspace</li></ul><button class="primary-btn plan-btn" data-plan="Plus">Choose Plus</button></div><div class="plan featured"><div class="popular">POPULAR</div><small>POWER USER</small><h3>Pro</h3><strong>₦10,000</strong><p>Advanced intelligence tools.</p><ul><li>Research Lab</li><li>Agent Mode</li><li>Code Studio</li></ul><button class="primary-btn plan-btn" data-plan="Pro">Choose Pro</button></div><div class="plan"><small>MAXIMUM</small><h3>Ultra</h3><strong>₦20,000</strong><p>Maximum ZCORP workspace.</p><ul><li>Everything in Pro</li><li>Highest limits</li><li>Ultra badge</li></ul><button class="primary-btn plan-btn" data-plan="Ultra">Choose Ultra</button></div></div><div class="redeem-card"><div><div class="eyebrow">PREMIUM CODE</div><h3>Have a ZCORP code?</h3><p>Redeem a Pro or Ultra code instantly on this browser.</p></div><form id="redeemForm"><input id="redeemInput" placeholder="ZCORP-PRO-XXXX-2026" autocomplete="off"><button class="primary-btn">Redeem code</button></form></div><div class="bank-card"><div><div class="eyebrow">BANK / OPAY</div><h3>Pay by bank transfer</h3><p>Send payment, then notify ZCORP for manual confirmation.</p></div><div class="bank-details"><div><small>ACCOUNT NAME</small><strong>CHRISTANA Godwin okon</strong></div><div><small>ACCOUNT NUMBER</small><strong>9066760078</strong></div><div><small>PROVIDER</small><strong>Opay</strong></div></div><button id="bankNotify" class="secondary-btn">Notify ZCORP on WhatsApp →</button></div></section>
+
+        <section id="view-settings" class="view"><div class="workspace-head"><div><div class="eyebrow">CONTROL CENTER</div><h2>Settings</h2><p>Manage your local ZEUS workspace.</p></div></div><div class="settings-grid"><div class="setting"><div><strong>AI backend URL</strong><small>Optional secure Render backend for real Gemini responses.</small></div><input id="backendUrl" placeholder="https://zcorp-bot.onrender.com"></div><div class="setting"><div><strong>Display name</strong><small>Shown across your workspace.</small></div><input id="settingsName" placeholder="Your name"></div><div class="setting"><div><strong>Theme</strong><small>Switch between dark and light UI.</small></div><button id="settingsTheme" class="secondary-btn">Toggle theme</button></div><div class="setting"><div><strong>Reset local workspace</strong><small>Deletes this browser's ZEUS data.</small></div><button id="resetData" class="danger-btn">Reset everything</button></div></div></section>
+
+        <section id="view-admin" class="view"><div class="workspace-head"><div><div class="eyebrow">LOCAL ADMIN</div><h2>Admin Console</h2><p>Local-device overview for testing your deployment.</p></div><span class="pro-badge">ADMIN</span></div><div class="admin-grid"><div class="admin-card"><small>ACCOUNTS</small><strong id="adminAccounts">0</strong></div><div class="admin-card"><small>ACTIVE PLAN</small><strong id="adminPlan">FREE</strong></div><div class="admin-card"><small>CHATS</small><strong id="adminChats">0</strong></div></div><div class="notice">This static GitHub Pages build intentionally keeps accounts and data in localStorage. For real multi-user accounts and secure Gemini, use a backend service.</div></section>
+      </div>
+    </main>
+  </section>
+  <script src="main.js"></script>
+</body>
+</html>
