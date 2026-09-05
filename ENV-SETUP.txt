@@ -1,0 +1,20 @@
+ZCORP AI — ENVIRONMENT NOTES
+
+For a static GitHub Pages / Render Static Site, do NOT paste a real Gemini API key into main.js or index.html.
+
+If you use a separate Render backend, put the real key in the backend's Render Environment Variables:
+
+GEMINI_API_KEY=YOUR_REAL_KEY
+
+Then open ZEUS → Settings → AI backend URL and enter the backend URL.
+
+ZCORP:
+ZCORP_NAME=ZCORP ORG
+ZCORP_EMAIL=zcorporg40@gmail.com
+ZCORP_WEBSITE=https://zcorp-org-co.vercel.app/
+ZCORP_WHATSAPP=9066760078
+
+BANK:
+PROVIDER=Opay
+ACCOUNT_NUMBER=9066760078
+ACCOUNT_NAME=CHRISTANA Godwin okon
